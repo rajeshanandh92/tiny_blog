@@ -16,16 +16,31 @@
 	      	&nbsp;
 
 	    </div>
-	    <% if (@posts.comments.size === 0) %>
+	    puts #{@posts.comments.size}
+	    <% if true %>
         	<div class="my-own-form"> 
           		<p class="lead">No Comments found. Add a new comment.</p>
         	</div>
       	<% else %>
-	    <div class="my-own-form">
-	    	<h4>Comments<small></small></h4>
-	    	<% @post.commets.each do |comment| %>
-	    	<p class="lead"><%= comment.content %></p>
-	  		<p><%= time_ago_in_words comment.created_at %> ago</p>
-	    </div>
+		    <div class="my-own-form">
+		    	<h4>Comments<small></small></h4>
+		    	<% @post.commets.each do |comment| %>
+		    		<p class="lead"><%= comment.content %></p>
+		  			<p><%= time_ago_in_words comment.created_at %> ago</p>
+		    	<% end %>
+		    </div>
+		<% end %>
+		<div class="my-own-form">
+		<%= form_for(@post, @post.comments.build ] do |f| %>
+			  <div class="form-group">
+			    <%= f.label :content %><br>
+			    <%= f.text_area :content, size: '46*25', :class => 'form-control',:required => true %>
+			    <p class="help-block"><em>Type the content to comment.</em></p>
+			  </div>
+			  <div class="form-group">
+			    <%= f.submit "Post Comment", :class => 'btn btn-lg btn-primary btn-block', :role => 'button'  %>
+			  </div>
+		<% end %>
+		</div>
 	</div>
 </div>
