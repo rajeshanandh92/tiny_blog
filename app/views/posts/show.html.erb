@@ -1,14 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12">
+    	<div class="my-own-form my-own-post">
+      		<h2 class="text-center"><%= @post.title %></h2>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+      		<p class="lead"><%= @post.content %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+      		<% if user_signed_in? %>
+	      		<%= link_to 'Back', posts_path , :class => 'col-md-6 btn btn-primary' %>
+	      		<%= link_to 'Edit', edit_post_path(@post) , :class => 'col-md-6 btn btn-default ' %>
+	      	<% else %>
+	      		<%= link_to 'Back', posts_path , :class => 'col-md-6 btn btn-primary' %>
+	      		<%= link_to 'Edit', edit_post_path(@post) , :class => 'col-md-6 btn btn-default disabled' %>
+	      		***Login to edit the post
+	      	<% end %>
+	      	&nbsp;
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+	    </div>
+	    <% if (@posts.comments.size === 0) %>
+        	<div class="my-own-form"> 
+          		<p class="lead">No Comments found. Add a new comment.</p>
+        	</div>
+      	<% else %>
+	    <div class="my-own-form">
+	    	<h4>Comments<small></small></h4>
+	    	<% @post.commets.each do |comment| %>
+	    	<p class="lead"><%= comment.content %></p>
+	  		<p><%= time_ago_in_words comment.created_at %> ago</p>
+	    </div>
+	</div>
+</div>
