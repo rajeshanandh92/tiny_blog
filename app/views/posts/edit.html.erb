@@ -1,6 +1,8 @@
-<h1>Editing post</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<div class="my-own-form">
+  	<h2 class="text-center">Edit Post</h2>
+	<%= render 'form' %>
+	<div class="form-group">
+		<%= link_to 'Show', @post ,:class => 'btn btn-primary btn-block', :role => 'button' %>
+		<%= link_to 'Back', posts_path, :class => 'btn btn-default btn-block', :role => 'button' %>
+	</div>
+</div>
