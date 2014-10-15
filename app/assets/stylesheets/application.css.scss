@@ -16,7 +16,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.tiny_blog h1
+.tiny-blog h1
 {
 	text-align: center;
+}
+.container-fluid div.footer 
+{
+	text-align: center;
+	padding-top: 15px;
+}
+div.my-own-form
+{
+	width: 400px;
+	margin: 20px auto;	
+}
+p.my-own-p
+{
+	margin-top:15px;
 }
