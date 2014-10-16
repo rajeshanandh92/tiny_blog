@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   
-  get 'comments/create'
+  #get 'comments/create', :as => post_comments
 
-  get 'comments/destroy'
+  #get 'comments/destroy', :as => delete_comments
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
   devise_for :users
   
