@@ -21,17 +21,30 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
+    if @post.save
+      flash[:notice] = "Post created.!!!"
+    else
+      render('new')
+    end
     respond_with(@post)
   end
 
   def update
-    @post.update(post_params)
+    result = @post.update(post_params)
+    if result
+      flash[:notice] = "Post updated.!!!"
+    else
+      render('edit')
+    end
     respond_with(@post)
   end
 
   def destroy
-    @post.destroy
+    if @post.destroy
+      flash[:notice] = "Post Deleted.!!!"
+    else
+      flash[:error] = "Err.. Error in deleting post.!!!"
+    end
     respond_with(@post)
   end
 

@@ -8,6 +8,12 @@
         <%= link_to("New Post", new_post_path , :class => 'btn btn-primary btn-lg btn-block disabled', :role => 'button') %>
         ***You should be signed in.
       <% end %>
+      <br/>
+      <% if !flash[:notice].blank? %>
+        <div class="alert alert-success">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
       <% if (@posts.size === 0) %>
         <div class="my-own-post"> 
           <p class="lead">No post found. Add a new post.</p>

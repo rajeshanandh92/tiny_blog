@@ -14,14 +14,6 @@ class CommentsController < ApplicationController
   	redirect_to @comment.post  	
   end
 
-  def edit
-  	@post = set_post
-  	@comment = @post.comments.build(comment_params)
-  	@comment.update_attribute(@comment)
-
-  	redirect_to @post
-  end
-
   def index
   	 @post = set_post
   	 redirect_to @post
