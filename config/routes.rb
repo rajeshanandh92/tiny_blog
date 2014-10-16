@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
   
-  #get 'comments/create', :as => post_comments
-
-  #get 'comments/destroy', :as => delete_comments
-
   resources :posts do
     resources :comments
   end
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
   devise_for :users
   
   root 'home#index', :as => 'home'
@@ -18,7 +14,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  # Example of regular route:
+  # Example of regular route:key => "value",                                                                                                                                        
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
@@ -31,7 +27,7 @@ Rails.application.routes.draw do
   #   resources :products do
   #     member do
   #       get 'short'
-  #       post 'toggle'
+  #       post 'toggle'                                                   
   #     end
   #
   #     collection do
