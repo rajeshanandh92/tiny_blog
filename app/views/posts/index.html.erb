@@ -5,8 +5,7 @@
       <% if user_signed_in? %>
         <%= link_to("New Post", new_post_path , :class => 'btn btn-primary btn-lg btn-block', :role => 'button') %>
       <% else %>
-        <%= link_to("New Post", new_post_path , :class => 'btn btn-primary btn-lg btn-block disabled', :role => 'button') %>
-        ***You should be signed in.
+        **New Post - You should be logged in. <%= link_to('Login here', new_user_session_path, :class => 'btn btn-link') %>
       <% end %>
       <br/>
       <% if !flash[:notice].blank? %>
@@ -31,9 +30,7 @@
               <%= link_to('Edit', edit_post_path(post), :class => 'col-md-6 btn btn-default') %>
               <%= link_to('Destroy', post, method: :delete,:class => 'col-md-6 btn btn-danger', data: { confirm: 'Are you sure?' })%>
             <% else %>
-              <%= link_to('Edit', edit_post_path(post), :class => 'col-md-6 btn btn-default disabled')%>
-              <%= link_to('Destroy', post, method: :delete, :class => 'col-md-6 btn btn-danger disabled', data: { confirm: 'Are you sure?' } )%>
-            ***You should be signed in.
+              **You should be logged in.<%= link_to('Login here', new_user_session_path, :class => 'btn btn-link ') %>
             <% end %>
             &nbsp;
             <hr />

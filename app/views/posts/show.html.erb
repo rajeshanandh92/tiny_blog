@@ -15,8 +15,7 @@
 	      		<%= link_to 'Edit', edit_post_path(@post) , :class => 'col-md-6 btn btn-default ' %>
 	      	<% else %>
 	      		<%= link_to 'Back', posts_path , :class => 'col-md-6 btn btn-primary' %>
-	      		<%= link_to 'Edit', edit_post_path(@post) , :class => 'col-md-6 btn btn-default disabled' %>
-	      		***Login to edit the post
+	      		**Login to edit this post.<%= link_to('Login here', new_user_session_path, :class => 'btn btn-link ') %>
 	      	<% end %>
 	      	&nbsp;
 	      	<hr/>
@@ -43,7 +42,7 @@
 				<%= render 'form_comment' %>
 				<!--</div>-->
 			<% else %>
-				<p>***Login to post comments.</p>			
+				<p>**Log in to add new comment.<%= link_to('Login here', new_user_session_path, :class => 'btn btn-link ') %></p>			
 			<% end %>
 		</div>
 	</div>
