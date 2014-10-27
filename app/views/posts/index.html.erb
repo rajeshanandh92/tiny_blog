@@ -1,18 +1,15 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12">
     <div class="my-own-form">
-      <h2 class="text-center">Post Feed. <small><em><%= pluralize(@posts.size,"Post") %> found</em></small></h2>
-      <% if user_signed_in? %>
-        <%= link_to("New Post", new_post_path , :class => 'btn btn-primary btn-lg btn-block', :role => 'button') %>
-      <% else %>
-        **New Post - You should be logged in. <%= link_to('Login here', new_user_session_path, :class => 'btn btn-link') %>
-      <% end %>
-      <br/>
       <% if !flash[:notice].blank? %>
         <div class="alert alert-success">
           <%= flash[:notice] %>
         </div>
       <% end %>
+      <h2 class="text-center">Post Feed. <small><em><%= pluralize(@posts.size,"Post") %> found</em></small></h2>
+        <%= link_to("New Post", new_post_path , :class => 'btn btn-primary btn-lg btn-block', :role => 'button') %>
+      <br/>
+
       <% if (@posts.size === 0) %>
         <div class="my-own-post"> 
           <p class="lead">No post found. Add a new post.</p>
@@ -29,8 +26,6 @@
 
               <%= link_to('Edit', edit_post_path(post), :class => 'col-md-6 btn btn-default') %>
               <%= link_to('Destroy', post, method: :delete,:class => 'col-md-6 btn btn-danger', data: { confirm: 'Are you sure?' })%>
-            <% else %>
-              **You should be logged in.<%= link_to('Login here', new_user_session_path, :class => 'btn btn-link ') %>
             <% end %>
             &nbsp;
             <hr />

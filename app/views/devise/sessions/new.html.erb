@@ -1,6 +1,12 @@
 <div class="my-own-form">
 	<h2 class="text-center">Sign In</h2>
 
+	<% if !flash[:notice].blank? %>
+		<div class="alert alert-danger">
+			<%= flash[:notice] %>
+		</div>
+	<% end %>
+
 	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 		<div class="form-group">
 			<%= f.label :email ,:class => 'control-label'%><br />
