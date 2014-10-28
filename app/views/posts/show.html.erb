@@ -9,15 +9,9 @@
       		<h2 class="text-center"><%= @post.title %><small><em> <%= time_ago_in_words @post.created_at %> ago</em></small></h2>
 
       		<p class="lead"><%= @post.content %></p>
-
-      		<% if user_signed_in? %>
-	      		<%= link_to 'Back', posts_path , :class => 'col-md-6 btn btn-primary' %>
-	      		<%= link_to 'Edit', edit_post_path(@post) , :class => 'col-md-6 btn btn-default ' %>
-	      	<% else %>
-	      		<%= link_to 'Back', posts_path , :class => 'col-md-6 btn btn-primary' %>
-	      		**Login to edit this post.<%= link_to('Login here', new_user_session_path, :class => 'btn btn-link ') %>
-	      	<% end %>
-	      	&nbsp;
+      		<%= link_to 'Back', posts_path , :class => 'col-md-6 btn btn-primary' %>
+      		<%= link_to 'Edit', edit_post_path(@post) , :class => 'col-md-6 btn btn-default ' %>
+      		<br/>
 	      	<hr/>
 	    <!--</div>-->
 		    <% if @post.comments.count === 0 %>
